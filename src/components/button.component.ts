@@ -1,8 +1,9 @@
-import { LitElement, html, customElement } from "lit-element";
+import { LitElement, html, customElement, property } from "lit-element";
 
 @customElement("saas-button")
 class ButtonComponent extends LitElement {
+  @property() myLabel: string = "";
   render() {
-    return html`<button>Hello World</button>`;
+    return html`<button>${this.myLabel}</button>`;
   }
 }

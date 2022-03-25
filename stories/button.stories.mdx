@@ -1,0 +1,39 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import { html } from "lit-element";
+
+import "@components/button.component";
+
+<Meta
+  title="Components/Button"
+  argTypes={{
+    label: {
+      description: "Button Label",
+      table: {
+        type: {
+          summary: "Something short",
+          detail: "Something really really long",
+        },
+        defaultValue: {
+          summary: "Something short",
+          detail: "Something really really long",
+        },
+      },
+      control: {
+        type: "text",
+      },
+    },
+  }}
+/>
+
+export const Template = (args) =>
+  html`<saas-button myLabel="${args.label}"></saas-button>`;
+
+# Button component
+
+<Canvas>
+  <Story name="Default" args={{ label: "Test" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

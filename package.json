@@ -1,0 +1,42 @@
+{
+  "name": "saas-design-system",
+  "version": "0.0.1",
+  "description": "This is a base design system, based on web-components using lit-element and supported by storybook.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tog-leanix/thesis_code.git"
+  },
+  "keywords": [
+    "Lit",
+    "Storybook",
+    "Design",
+    "System"
+  ],
+  "author": "Tom Gehder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tog-leanix/thesis_code/issues"
+  },
+  "homepage": "https://github.com/tog-leanix/thesis_code#readme",
+  "dependencies": {
+    "lit": "^2.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/web-components": "^6.4.19",
+    "babel-loader": "^8.2.4",
+    "storybook": "^6.4.19",
+    "webpack": "^5.70.0"
+  }
+}

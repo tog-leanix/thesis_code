@@ -1,0 +1,9 @@
+:root {
+  --base-spacing: 2px;
+  --xs-spacing: var(--base-spacing);
+  --sm-spacing: calc(var(--xs-spacing) * 2);
+  --md-spacing: calc(var(--sm-spacing) * 2);
+  --lg-spacing: calc(var(--md-spacing) * 2);
+  --xl-spacing: calc(var(--lg-spacing) * 2);
+  --xxl-spacing: calc(var(--xl-spacing) * 2);
+}

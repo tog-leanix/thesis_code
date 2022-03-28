@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement, property } from "lit-element";
-@customElement("saas-button")
+import { PREFIX } from "../constants";
+@customElement(PREFIX + "button")
 class ButtonComponent extends LitElement {
   static styles = css`
     button {

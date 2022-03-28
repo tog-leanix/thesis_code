@@ -1,0 +1,66 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import { html } from "lit-element";
+
+<Meta
+  title="Atoms/Spacing"
+  argTypes={{
+    baseSpacing: {
+      description: "Base Spacing",
+      table: {
+        type: {
+          summary: "Number",
+        },
+        defaultValue: {
+          summary: 2,
+        },
+      },
+      control: {
+        type: "number",
+      },
+    },
+  }}
+/>
+
+export const Template = (args) => {
+  const steps = [
+    "--xs-spacing",
+    "--sm-spacing",
+    "--md-spacing",
+    "--lg-spacing",
+    "--xl-spacing",
+    "--xxl-spacing",
+  ];
+  return html`
+    <style>
+      :root {
+        --base-spacing: ${args.baseSpacing}px;
+      }
+    </style>
+    <div class="example">
+      ${steps.map(
+        (step) => html`
+          <p>
+            <div
+              class="example-box"
+              style="padding:var(${step}); background: var(--grey-90); display: inline-block"
+            >
+              <span style="background:white; font-size:21px">${step}</span>
+            </div>
+          </p>
+        `
+      )}
+    </div>
+  `;
+};
+
+export const baseSpacing = 2;
+
+# Spacing
+
+<Canvas>
+  <Story name="Default" args={{ baseSpacing }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

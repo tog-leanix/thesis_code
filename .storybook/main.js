@@ -1,4 +1,5 @@
 const path = require("path");
+
 module.exports = {
   stories: [
     "../stories/**/*.stories.mdx",
@@ -15,16 +16,12 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
 
     // Make whatever fine-grained changes you need
-    config.resolve.alias["@components"] = path.resolve(
+    const designSystemJavascriptPath = path.resolve(
       __dirname,
-      "../src/components"
+      "../dist/main.js"
     );
-
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      include: path.resolve(__dirname, "../src"),
-      loader: require.resolve("ts-loader"),
-    });
+    const designSystemCssPath = path.resolve(__dirname, "../dist/main.css");
+    config.entry.push(designSystemJavascriptPath, designSystemCssPath);
 
     // Return the altered config
     return config;

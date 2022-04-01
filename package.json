@@ -4,6 +4,7 @@
   "description": "My webpack project",
   "main": "index.js",
   "scripts": {
+    "start": "npm run storybook & npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

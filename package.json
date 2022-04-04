@@ -13,6 +13,9 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
+    "demo:sds:watch": "cd sds-demo-app && rollup -c -w",
+    "demo:sds:build": "cd sds-demo-app && rollup -c",
+    "demo:sds:lint": "cd sds-demo-app && svelte-check --tsconfig ./tsconfig.json",
     "serve": "webpack serve"
   },
   "repository": {
@@ -32,7 +35,7 @@
   },
   "homepage": "https://github.com/tog-leanix/thesis_code#readme",
   "dependencies": {
-    "lit": "^2.2.1"
+    "sirv-cli": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -55,6 +58,19 @@
     "typescript": "^4.6.3",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.7.4",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^2.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "tslib": "^2.0.0",
+    "@tsconfig/svelte": "^2.0.0"
   }
 }

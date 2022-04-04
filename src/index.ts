@@ -1,6 +1,7 @@
 import "@components/navbar.component";
 import "@components/navbar-item.component";
 import "@components/button.component";
+import "@components/table.component";
 import "./atoms/spacing.scss";
 import "./atoms/colors.scss";
 import "./atoms/seizes.scss";

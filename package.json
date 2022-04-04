@@ -39,8 +39,9 @@
   },
   "homepage": "https://github.com/tog-leanix/thesis_code#readme",
   "dependencies": {
+    "lit": "^2.2.1",
     "sirv-cli": "^2.0.0",
-    "lit": "^2.2.1"
+    "svelte-router-spa": "^6.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

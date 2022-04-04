@@ -1,11 +1,10 @@
 <script lang="ts">
-	export let name: string;
+	import { Router } from "svelte-router-spa";
+	import { routes } from "./routes";
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<saas-button myLabel="Hello World"></saas-button>
+<main>	
+	<Router routes={routes}></Router>
 </main>
 
 <style>

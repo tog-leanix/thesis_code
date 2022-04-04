@@ -1,4 +1,11 @@
-import { LitElement, html, css, customElement, property } from "lit-element";
+import {
+  LitElement,
+  html,
+  css,
+  customElement,
+  property,
+  eventOptions,
+} from "lit-element";
 import { PREFIX } from "../constants";
 @customElement(PREFIX + "button")
 class ButtonComponent extends LitElement {
@@ -9,10 +16,12 @@ class ButtonComponent extends LitElement {
       background: var(--primary-color, #ccc);
       border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
   `;
-  @property() myLabel: string = "";
+  @property() label: string = "";
+
   render() {
-    return html`<button>${this.myLabel}</button>`;
+    return html`<button><slot> ${this.label} </slot></button>`;
   }
 }

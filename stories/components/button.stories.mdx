@@ -15,11 +15,28 @@ import { html } from "lit-element";
         type: "text",
       },
     },
+    innerHtml: {
+      description: "Inner HTML rendering in slot",
+      table: {
+        type: {
+          summary: "String",
+        },
+      },
+      control: {
+        type: "text",
+      },
+    },
+    onClick: {
+      name: "click",
+      action: "clicked",
+    },
   }}
 />
 
 export const Template = (args) =>
-  html`<saas-button myLabel="${args.label}"></saas-button>`;
+  html`<saas-button label="${args.label}" @click=${args.onClick}
+    >${args.innerHtml}</saas-button
+  >`;
 
 # Button component
 

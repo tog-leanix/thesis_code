@@ -1,5 +1,4 @@
 import { LitElement, html, css, customElement, property } from "lit-element";
-import { classMap } from "lit/directives/class-map.js";
 import { PREFIX } from "../constants";
 
 @customElement(PREFIX + "navbar-item")
@@ -10,17 +9,20 @@ class NavbarItemComponent extends LitElement {
       padding: 0px var(--sm-spacing);
     }
 
+    ::slotted(a),
     a {
       display: block;
-      text-decoration: none;
-      color: var(--text-color);
+      text-decoration: none !important;
+      color: var(--text-color) !important;
     }
   `;
   @property() label = "";
   @property() link = "";
   render() {
     return html`<li>
-      <a href="${this.link}">${this.label}</a>
+      <slot>
+        <a href="${this.link}">${this.label}</a>
+      </slot>
     </li>`;
   }
 }

@@ -1,30 +1,10 @@
 <script lang="ts">
-	import { Router } from "svelte-router-spa";
-	import { routes } from "./routes";
+import { Router } from "svelte-router-spa";
+import { routes } from "./routes";
+
 </script>
 
-<main>	
+<div>
 	<Router routes={routes}></Router>
-</main>
+</div>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>

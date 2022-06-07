@@ -5,23 +5,12 @@ export let currentRoute;
     
 </script>
 <saas-navbar>
+	<img src="https://avatars3.githubusercontent.com/u/2159051?v=4" slot="logo" alt="Logo">
 	<saas-navbar-item><Navigate to="/main/home">Home</Navigate></saas-navbar-item>
     <saas-navbar-item><Navigate to="/main/data">Table</Navigate></saas-navbar-item> 
 </saas-navbar>
-<main>
-    <Route {currentRoute}></Route>
-</main>
-<style>
-	
-	
-	main {
-		text-align: center;
-		max-width: 1200px;
-		margin: 0 auto;
-        overflow-y: auto;
-        height: calc(100vh - var(--navbar-height));
-	}
+<saas-content>
 
-	
-	
-</style>
+		<Route {currentRoute}></Route>
+
+</saas-content>

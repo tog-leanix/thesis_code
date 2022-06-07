@@ -15,7 +15,7 @@ import { navigateTo } from "svelte-router-spa";
         label = 'Clicked';
     }
 </script>
-<h1>Hello!</h1>
+<h1 class="title">Hello!</h1>
 
 <saas-button label={label} on:click={handleClick}></saas-button>
 

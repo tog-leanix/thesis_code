@@ -35,6 +35,10 @@ class TableComponent extends LitElement {
     td {
       padding: var(--sm-spacing) var(--md-spacing);
     }
+
+    th {
+      text-align: center;
+    }
   `;
   @property({ type: Object }) header: TableHeader = {};
   @property({ type: Array }) data: any[] = [];

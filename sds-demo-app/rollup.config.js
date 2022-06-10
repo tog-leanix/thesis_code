@@ -82,6 +82,6 @@ export default {
     production && terser(),
   ],
   watch: {
-    clearScreen: false,
+    clearScreen: true,
   },
 };

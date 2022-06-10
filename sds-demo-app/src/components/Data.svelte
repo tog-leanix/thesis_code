@@ -1,4 +1,8 @@
 <script lang="ts">
+import { addMarker,getPerformanceJson } from "../helpers/timing.helpers";
+
+
+  addMarker('visit-data');
 
 
 const header = {
@@ -63,7 +67,15 @@ function validate() {
   if(entry.company && entry.status && entry.about) {
     myArray.push({...entry, id: myArray.length})
     isAddEntry = false;
+    addMarker('add-data-done');
+    window.performance.mark('add-data-done');
+    getPerformanceJson()
   }
+}
+
+function addEntry() {
+  isAddEntry = true
+  addMarker('add-data-start');
 }
 </script>
 
@@ -71,7 +83,7 @@ function validate() {
 {#if !isAddEntry}
     
 <div class="actions">
-    <saas-button on:click={()=> isAddEntry = true}>Add +</saas-button>
+    <saas-button on:click={addEntry}>Add +</saas-button>
 </div>
 <hr>
 <saas-table header={header} data={myArray}></saas-table>

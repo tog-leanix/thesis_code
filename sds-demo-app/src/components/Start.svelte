@@ -1,9 +1,11 @@
 <script lang="ts">
 import { navigateTo } from "svelte-router-spa";
+import { addMarker } from "../helpers/timing.helpers";
 
 
 
 function startJourney(){
+    addMarker('start');
     navigateTo('main/home')
 }
 </script>

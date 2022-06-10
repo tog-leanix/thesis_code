@@ -58,6 +58,13 @@ let entry = {
     status: '',
     about: ''
 }
+
+function validate() {
+  if(entry.company && entry.status && entry.about) {
+    myArray.push({...entry, id: myArray.length})
+    isAddEntry = false;
+  }
+}
 </script>
 
 <h1>Companies status</h1>
@@ -74,14 +81,18 @@ let entry = {
     </saas-input>
     <saas-input label="Status:" for="status" value={entry.status} on:value={({detail})=> entry.status = detail}>
     </saas-input>
-    <saas-input label="Company name:" for="about" value={entry.about} on:value={({detail})=> entry.about = detail}>
+    <saas-input label="Description:" for="about" value={entry.about} on:value={({detail})=> entry.about = detail}>
     </saas-input>
-    {JSON.stringify(entry,null, 2)}
+    <saas-button on:click={validate}>Save</saas-button>
 </form>
 {/if}
 
 <style>
     .actions {
         text-align: right;
+    }
+
+    form {
+      padding: 4px;
     }
 </style>

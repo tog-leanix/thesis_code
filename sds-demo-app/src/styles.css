@@ -1,7 +1,12 @@
+@font-face {
+  font-family: "Coolvetica";
+  src: url("assets/fonts/coolvetica.ttf");
+}
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "Coolvertica";
 }
 
 :root {

@@ -1,5 +1,4 @@
 type MarkerName = "start" | "visit-data" | "add-data-done" | "add-data-start";
-
 export function addMarker(markerName: MarkerName) {
   window.performance.mark(markerName);
 }
@@ -17,5 +16,17 @@ export function getPerformanceJson() {
     window.performance.measure(name, start, end).toJSON()
   );
 
-  console.log(jsonArray);
+  downloadObjectAsJson(jsonArray, "measures");
+}
+
+function downloadObjectAsJson(exportObj: any, exportName: string) {
+  var dataStr =
+    "data:text/json;charset=utf-8," +
+    encodeURIComponent(JSON.stringify(exportObj));
+  var downloadAnchorNode = document.createElement("a");
+  downloadAnchorNode.setAttribute("href", dataStr);
+  downloadAnchorNode.setAttribute("download", exportName + ".json");
+  document.body.appendChild(downloadAnchorNode); // required for firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
 }

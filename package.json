@@ -17,9 +17,13 @@
     "demo:sds:watch": "cd sds-demo-app && rollup -c -w",
     "demo:sds:build": "cd sds-demo-app && rollup -c",
     "demo:sds:lint": "cd sds-demo-app && svelte-check --tsconfig ./tsconfig.json",
+    "demo:sds:upload": "cd sds-demo-app/public && cp index.html 200.html && surge . sds-demo-app.surge.sh",
+    "demo:sds:release": "npm run demo:sds:build && npm run demo:sds:upload",
     "demo:normal:watch": "cd normal-demo-app && rollup -c -w",
     "demo:normal:build": "cd normal-demo-app && rollup -c",
     "demo:normal:lint": "cd normal-demo-app && svelte-check --tsconfig ./tsconfig.json",
+    "demo:normal:upload": "cd normal-demo-app/public && cp index.html 200.html && surge . sds-demo-app-normal.surge.sh",
+    "demo:normal:release": "npm run demo:normal:build && npm run demo:normal:upload",
     "serve": "webpack serve"
   },
   "repository": {
@@ -69,6 +73,7 @@
     "sass-loader": "^12.6.0",
     "storybook": "^6.4.20",
     "style-loader": "^3.3.1",
+    "surge": "^0.23.1",
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",

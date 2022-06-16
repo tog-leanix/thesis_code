@@ -95,7 +95,7 @@ function addEntry() {
     </saas-input>
     <saas-input label="Description:" for="about" value={entry.about} on:value={({detail})=> entry.about = detail}>
     </saas-input>
-    <saas-button on:click={validate}>Save</saas-button>
+    <saas-button disabled={true} on:click={validate}>Save</saas-button>
 </form>
 {/if}
 

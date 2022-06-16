@@ -18,10 +18,17 @@ class ButtonComponent extends LitElement {
       border-radius: 5px;
       cursor: pointer;
     }
+
+    button:disabled {
+      background: var(--grey-90);
+    }
   `;
   @property() label: string = "";
+  @property({ type: Boolean }) disabled: boolean = false;
 
   render() {
-    return html`<button><slot> ${this.label} </slot></button>`;
+    return html` <button ?disabled=${this.disabled}>
+      <slot> ${this.label} </slot>
+    </button>`;
   }
 }

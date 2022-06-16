@@ -9,6 +9,7 @@ class ContentComponent extends LitElement {
       margin: 0 auto;
       overflow-y: auto;
       height: calc(100vh - var(--navbar-height));
+      padding: var(--md-spacing);
     }
 
     ::slotted(.title) {

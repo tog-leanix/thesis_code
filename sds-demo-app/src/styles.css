@@ -2,6 +2,9 @@
   font-family: "Coolvetica";
   src: url("assets/fonts/coolvetica.ttf");
 }
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   margin: 0;
@@ -10,6 +13,6 @@ body {
 }
 
 :root {
-  --primary-color: rgb(255, 121, 4) !important;
+  --primary-color: rgb(184, 255, 4) !important;
   --text-color: #333 !important;
 }

@@ -6,7 +6,7 @@ class NavbarItemComponent extends LitElement {
   static styles = css`
     li {
       cursor: pointer;
-      padding: 0px var(--sm-spacing);
+      padding: 0px var(--md-spacing);
     }
 
     ::slotted(a),

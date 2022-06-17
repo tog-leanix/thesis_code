@@ -5,7 +5,7 @@ class ContentComponent extends LitElement {
   static styles = css`
     main {
       text-align: left;
-      max-width: 1200px;
+      max-width: var(--content-width, 1200px);
       margin: 0 auto;
       overflow-y: auto;
       height: calc(100vh - var(--navbar-height));

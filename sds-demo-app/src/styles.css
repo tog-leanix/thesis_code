@@ -15,4 +15,5 @@ body {
 :root {
   --primary-color: rgb(184, 255, 4) !important;
   --text-color: #333 !important;
+  --content-width: 800px;
 }

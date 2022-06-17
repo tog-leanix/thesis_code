@@ -22,7 +22,7 @@ import { navigateTo } from "svelte-router-spa";
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro vero hic, ipsa dolorum qui eveniet, mollitia enim dicta dolores reprehenderit fuga asperiores at repellendus aliquam iusto quas voluptatem debitis. Tempora? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ut officiis inventore quae expedita sunt laudantium ab. Voluptatibus beatae, culpa labore neque assumenda recusandae. Rerum nesciunt laborum mollitia perspiciatis quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p><p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ut officiis inventore quae expedita sunt laudantium ab. Voluptatibus beatae, culpa labore neque assumenda recusandae. Rerum nesciunt laborum mollitia perspiciatis quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
-<img src="https://cataas.com/cat/nice?type=md" alt="cat">
+<img src="https://cataas.com/cat/fun?type=md" alt="cat">
 <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ut officiis inventore quae expedita sunt laudantium ab. Voluptatibus beatae, culpa labore neque assumenda recusandae. Rerum nesciunt laborum mollitia perspiciatis quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora libero maiores fugit nisi omnis quisquam illum iusto esse ab, beatae voluptatem ipsum iste modi, quas rerum placeat blanditiis repellat odit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
@@ -36,11 +36,10 @@ import { navigateTo } from "svelte-router-spa";
 
 <style>
     p {
-        font-size: 1.5rem;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
     }
     img {
-        margin: 0 1.5rem;
+        padding: 0 1rem;
         height: 300px;
         float: left;
     }

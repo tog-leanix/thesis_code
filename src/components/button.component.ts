@@ -1,11 +1,4 @@
-import {
-  LitElement,
-  html,
-  css,
-  customElement,
-  property,
-  eventOptions,
-} from "lit-element";
+import { LitElement, html, css, customElement, property } from "lit-element";
 import { PREFIX } from "../constants";
 @customElement(PREFIX + "button")
 class ButtonComponent extends LitElement {

@@ -16,7 +16,7 @@ export function getPerformanceJson() {
     window.performance.measure(name, start, end).toJSON()
   );
 
-  downloadObjectAsJson(jsonArray, "measures");
+  downloadObjectAsJson(jsonArray, "measures-sds");
 }
 
 function downloadObjectAsJson(exportObj: any, exportName: string) {

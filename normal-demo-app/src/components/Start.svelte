@@ -11,10 +11,30 @@ function startJourney(){
 </script>
 <main>
     <h1>Thank you for participating!</h1>
-    
-    <p>Here will be the description what this test is about.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ad ducimus necessitatibus praesentium qui asperiores consectetur tempora ab similique nam autem beatae magnam quam id doloribus? Sint id explicabo exercitationem!
 
+    <p>
+        The purpose of this demo is to determine whether or not the use of a design system helps to improve the user experience for the end user.
+        Before the experiment, the users do not know which demo they are using. So they are not influenced in advance. 
+    </p>
+    <p>
+        To test the demo properly, I ask you to do the following task:
+    </p>
+    <ol>
+        <li>
+            Navigate to the data table with records from different companies.
+        </li>
+        <li>
+            Find the action to create a new data entry
+        </li>
+        <li>
+            Fill in the form and submit a new entry.
+        </li>
+    </ol>
+    <p>
+        When the record is successfully added, the browser will automatically download a file. Please send me this file via email or Slack.
+    </p>
+    <p>
+        When you are ready to start the test and have no further questions, click on "Start" to begin the test.
     </p>
     <button on:click={startJourney}>Start</button>
 </main>
@@ -41,5 +61,8 @@ function startJourney(){
         background-color: transparent;
         border: none;
         cursor: pointer;
+    }
+    ol {
+        font-weight: bold;
     }
 </style>

@@ -15,15 +15,15 @@ import { html } from "lit-element";
         type: "text",
       },
     },
-    innerHtml: {
-      description: "Inner HTML rendering in slot",
+    disabled: {
+      description: "Disables the button",
       table: {
         type: {
-          summary: "String",
+          summary: "Boolean",
         },
       },
       control: {
-        type: "text",
+        type: "boolean",
       },
     },
     onClick: {
@@ -34,14 +34,17 @@ import { html } from "lit-element";
 />
 
 export const Template = (args) =>
-  html`<saas-button label="${args.label}" @click=${args.onClick}
+  html`<saas-button
+    label="${args.label}"
+    @click=${args.onClick}
+    ?disabled="${args.disabled}"
     >${args.innerHtml}</saas-button
   >`;
 
 # Button component
 
 <Canvas>
-  <Story name="Default" args={{ label: "Test" }}>
+  <Story name="Default" args={{ label: "Test", disabled: false }}>
     {Template.bind({})}
   </Story>
 </Canvas>

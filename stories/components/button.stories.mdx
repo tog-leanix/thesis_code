@@ -41,12 +41,23 @@ export const Template = (args) =>
     >${args.innerHtml}</saas-button
   >`;
 
-# Button component
+# Button
+
+The button component indicates the user a CTA (call to action).
+
+Use it where you think a user should perform an action to progress throughout the application.
+Do not use more than 3 buttons at the same time on one user interface. This leads to confusion for the users.
+
+## Example
 
 <Canvas>
   <Story name="Default" args={{ label: "Test", disabled: false }}>
     {Template.bind({})}
   </Story>
 </Canvas>
+
+## Interfaces
+
+Here you can see the different properties you can configure the button.
 
 <ArgsTable story="Default" />

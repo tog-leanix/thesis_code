@@ -7,9 +7,3 @@ import "@components/input.component";
 import "./atoms/spacing.scss";
 import "./atoms/colors.scss";
 import "./atoms/seizes.scss";
-
-// const template = html`<div>
-//   <saas-button myLabel="Test"></saas-button>
-// </div>`;
-
-// render(template, document.body);

@@ -7,7 +7,7 @@
 	<img src="https://avatars3.githubusercontent.com/u/2159051?v=4" alt="Logo">
 	<ul>
 		<li><Navigate styles="nav-item"  to="/main/home">Home</Navigate></li>
-		<li><Navigate styles="nav-item" to="/main/data">Table</Navigate></li>
+		<li><Navigate styles="nav-item" to="/main/data">Companies</Navigate></li>
 	</ul>
 </nav>
 <div class="content">

@@ -52,7 +52,7 @@ module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins = [...config.plugins || [], new MiniCssExtractPlugin()];
   } else {
     config.mode = "development";
   }

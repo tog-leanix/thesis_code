@@ -10,6 +10,8 @@ class ButtonComponent extends LitElement {
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-family : inherit;
+      font-size: 1em;
     }
 
     button:disabled {

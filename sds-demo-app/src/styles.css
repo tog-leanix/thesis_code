@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Coolvetica";
-  src: url("assets/fonts/coolvetica.ttf");
+  src: url("./assets/fonts/coolvetica.ttf");
 }
 * {
   box-sizing: border-box;
@@ -9,7 +9,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Coolvertica";
+  font-family: "Coolvetica";
+}
+
+p {
+  font-weight: 100;
 }
 
 :root {

@@ -27,7 +27,7 @@ function startJourney(){
         Find the action to create a new data entry
     </li>
     <li>
-        Fill in the form and submit a new entry.
+        Fill out the form and submit a new entry.
     </li>
 </ol>
 <p>

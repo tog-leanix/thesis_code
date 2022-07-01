@@ -21,6 +21,7 @@ class InputComponent extends LitElement {
       outline: none;
       line-height: var(--input-line-height);
       font-size: var(--input-line-height);
+      font-family: inherit;
     }
 
     input:focus {

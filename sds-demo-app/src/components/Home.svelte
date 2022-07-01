@@ -1,20 +1,4 @@
-<script lang="ts">
-import { navigateTo } from "svelte-router-spa";
 
-
-    let label = 'My Label';
-    const header = {
-        id: '#',
-        title: 'Title',
-    }
-    const myArray =[{title: 'Hello World', id:1}];
-
-    const handleClick = (event)=>{
-        console.log(event);
-        navigateTo('/data')
-        label = 'Clicked';
-    }
-</script>
 <h1 class="title">Hello welcome to my demo!</h1>
 <p>This demo helps to identify differneces in user experiences when having a design system in place. As a user you won't knwo if this system is supported by one or not. The goal for me is to watch closely how the user is interacting with this demo. But no worries there isn' a right and wrong way. With the gathered data I plan to evaluate the hypothesis of my thesis. So thank you for helping me and hvae fun.</p>
 <p>To distract the user a bit I've created this landing page which doesn't help in any case but looks nicely and has a wall of text and some random images. This might distract users and creates different interaction patterns. Because I am out of ideas what I could put at thsi landing page more you will see random images of cats and paragraphs consisting of lorem ipsum.</p>
@@ -31,9 +15,6 @@ import { navigateTo } from "svelte-router-spa";
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita obcaecati consequatur et saepe sequi tempore maiores est. Praesentium explicabo id ullam voluptates excepturi dicta rem minima nam magni, neque laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sint expedita iure recusandae necessitatibus aspernatur quos dolores atque consequatur? Et illo ad nemo adipisci aperiam possimus placeat necessitatibus dolores dignissimos. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores commodi hic cum facilis ea placeat voluptas magni, suscipit nemo tenetur dignissimos, nihil debitis praesentium libero dicta natus dolorum in?</p>
-
-<!-- <saas-button label={label} on:click={handleClick}></saas-button> -->
-
 <style>
     p {
         margin: 1rem 0;

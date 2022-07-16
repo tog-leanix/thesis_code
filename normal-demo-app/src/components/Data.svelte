@@ -84,12 +84,10 @@ function addEntry() {
 
 <h1>Companies status</h1>
 {#if !isAddEntry}
-    
 <div class="actions">
     <SvelteButton on:click={addEntry}>Add +</SvelteButton>
 </div>
 <hr>
-
 <SvelteTable header={header} data={myArray}></SvelteTable>
 {:else}
 <form on:submit|preventDefault>

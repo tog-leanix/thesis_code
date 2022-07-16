@@ -35,7 +35,6 @@
 		padding: 0 8px;
 		line-height: 40px;
 	}
-
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -46,5 +45,4 @@
 		width: 100%;
 		padding: 8px;
 	}
-	
 </style>

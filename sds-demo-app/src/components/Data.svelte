@@ -10,8 +10,9 @@ const header = {
         company: 'Name',
         status: 'Status',
         about: 'Description'
-    }
-    const myArray =[
+    };
+
+    const myArray = [
   {
     "id": 0,
     "company": "EXTRAGENE",
@@ -63,7 +64,7 @@ let entry = {
     about: ''
 }
 
-function validate() {
+function submit() {
   if(entry.company && entry.status && entry.about) {
     myArray.push({...entry, id: myArray.length})
     isAddEntry = false;
@@ -81,7 +82,6 @@ function addEntry() {
 
 <h1>Companies status</h1>
 {#if !isAddEntry}
-    
 <div class="actions">
     <saas-button on:click={addEntry}>Add +</saas-button>
 </div>
@@ -95,7 +95,7 @@ function addEntry() {
     </saas-input>
     <saas-input label="Description:" for="about" value={entry.about} on:value={({detail})=> entry.about = detail}>
     </saas-input>
-    <saas-button disabled={!entry.company || !entry.status || !entry.about} on:click={validate}>Save</saas-button>
+    <saas-button disabled={!entry.company || !entry.status || !entry.about} on:click={submit}>Save</saas-button>
 </form>
 {/if}
 

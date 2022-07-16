@@ -25,7 +25,8 @@
     "demo:normal:lint": "cd normal-demo-app && svelte-check --tsconfig ./tsconfig.json",
     "demo:normal:upload": "cd normal-demo-app/public && cp index.html 200.html && surge . sds-demo-app-2.surge.sh",
     "demo:normal:release": "npm run demo:normal:build && npm run demo:normal:upload",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "test:calculate": "deno run --allow-read --allow-write ./test/calculation.ts "
   },
   "repository": {
     "type": "git",

@@ -3,3 +3,5 @@ storybook-static
 dist
 .DS_Store
 **/public/build/
+normalCalculatedData.json
+sdsCalculatedData.json

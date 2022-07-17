@@ -2,43 +2,39 @@ type PerformanceName =
   | "total-duration"
   | "time-add-data"
   | "time-start-add"
-  | "time-add-button"
   | "time-to-data";
 
 interface MyPerformanceEntry extends PerformanceEntry {
   name: PerformanceName;
 }
 
-interface RelativePerformanceData {
-  name: PerformanceName;
-  relativeTime: number;
+interface RelativePerformanceRunData {
+  runIndex: number | "Average";
+  type?: "Normal" | "SDS";
+  totalDuration: number;
+  "time-add-data": number;
+  "time-start-add": number;
+  "time-to-data": number;
 }
 
 const normalPerformanceData = calculatePerformanceData("./data/normal");
 const sdsPerformanceData = calculatePerformanceData("./data/sds");
+const avaragePerformanceData = getAvaragePerformanceData(
+  normalPerformanceData[normalPerformanceData.length - 1],
+  sdsPerformanceData[sdsPerformanceData.length - 1]
+);
 
 writeFilesASJSON("./normalCalculatedData.json", normalPerformanceData);
 writeFilesASJSON("./sdsCalculatedData.json", sdsPerformanceData);
+writeFilesASJSON("./avaragesCalculatedData.json", avaragePerformanceData);
 
 function calculatePerformanceData(path: string) {
-  return readFilesASJSON(path)
+  const calculatedData = readFilesASJSON(path)
     .map(mapPerformanceDataToRelativeData)
-    .reduce((prev, run) => {
-      prev.push(...run);
-      return prev;
-    }, [] as RelativePerformanceData[]);
-}
-
-function mapRunDataToRelative(
-  run: MyPerformanceEntry,
-  totalDuration: number
-): RelativePerformanceData {
-  const relativeTime = run.duration / totalDuration;
-
-  return {
-    name: run.name,
-    relativeTime,
-  };
+    .sort((a, b) => a["time-start-add"] - b["time-start-add"])
+    .sort((a, b) => a["time-to-data"] - b["time-to-data"]);
+  calculatedData.push(addAvarageData(calculatedData));
+  return calculatedData;
 }
 
 function readFilesASJSON(path: string) {
@@ -52,27 +48,83 @@ function readFilesASJSON(path: string) {
   });
 }
 
-function writeFilesASJSON(path: string, data: RelativePerformanceData[]) {
+function writeFilesASJSON<T>(path: string, data: Array<T>) {
   const __currentDir = new URL(".", import.meta.url);
   const dataUrl = new URL(path, __currentDir);
   Deno.writeTextFileSync(dataUrl, JSON.stringify(data));
 }
 
-function mapPerformanceDataToRelativeData(testRun: MyPerformanceEntry[]) {
+function mapPerformanceDataToRelativeData(
+  testRun: MyPerformanceEntry[],
+  index: number
+): RelativePerformanceRunData {
   const totalDuration = testRun.find(
     (run) => run.name === "total-duration"
   )?.duration;
   if (totalDuration) {
-    const relativeTime = testRun
-      .map((run) => mapRunDataToRelative(run, totalDuration))
-      .filter(
-        (entry) =>
-          entry.name === "time-to-data" ||
-          entry.name === "time-add-data" ||
-          entry.name === "time-start-add"
-      );
-    return relativeTime;
+    const runData = testRun.reduce((prev, run) => {
+      if (run.name !== "total-duration") {
+        prev[run.name] = run.duration / totalDuration;
+      } else {
+        prev["totalDuration"] = totalDuration;
+      }
+      return prev;
+    }, {} as RelativePerformanceRunData);
+    runData.runIndex = index + 1;
+    return runData;
   } else {
     throw new Error("No total duration found.");
   }
+}
+
+function addAvarageData(
+  calculatedData: RelativePerformanceRunData[]
+): RelativePerformanceRunData {
+  const initAvarageData: RelativePerformanceRunData = {
+    "time-add-data": 0,
+    "time-start-add": 0,
+    "time-to-data": 0,
+    totalDuration: 0,
+    runIndex: "Average",
+  };
+  const sumOfAllRuns = calculatedData.reduce((prev, data) => {
+    prev["time-add-data"] = prev["time-add-data"] + data["time-add-data"];
+    prev["time-start-add"] = prev["time-start-add"] + data["time-start-add"];
+    prev["time-to-data"] = prev["time-to-data"] + data["time-to-data"];
+    prev["totalDuration"] = prev["totalDuration"] + data["totalDuration"];
+    return prev;
+  }, initAvarageData);
+  sumOfAllRuns["time-add-data"] =
+    sumOfAllRuns["time-add-data"] / calculatedData.length;
+  sumOfAllRuns["time-start-add"] =
+    sumOfAllRuns["time-start-add"] / calculatedData.length;
+  sumOfAllRuns["time-to-data"] =
+    sumOfAllRuns["time-to-data"] / calculatedData.length;
+  sumOfAllRuns["totalDuration"] =
+    sumOfAllRuns["totalDuration"] / calculatedData.length;
+  return sumOfAllRuns;
+}
+
+function getAvaragePerformanceData(
+  normal: RelativePerformanceRunData,
+  sds: RelativePerformanceRunData
+): [RelativePerformanceRunData, RelativePerformanceRunData] {
+  normal.totalDuration = normal.totalDuration / 1000;
+  sds.totalDuration = sds.totalDuration / 1000;
+  return [
+    {
+      ...normal,
+      "time-add-data": normal["time-add-data"] * normal.totalDuration,
+      "time-start-add": normal["time-start-add"] * normal.totalDuration,
+      "time-to-data": normal["time-to-data"] * normal.totalDuration,
+      type: "Normal",
+    },
+    {
+      ...sds,
+      "time-add-data": sds["time-add-data"] * sds.totalDuration,
+      "time-start-add": sds["time-start-add"] * sds.totalDuration,
+      "time-to-data": sds["time-to-data"] * sds.totalDuration,
+      type: "SDS",
+    },
+  ];
 }

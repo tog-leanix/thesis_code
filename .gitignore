@@ -6,3 +6,4 @@ dist
 normalCalculatedData.json
 sdsCalculatedData.json
 avaragesCalculatedData.json
+*.csv

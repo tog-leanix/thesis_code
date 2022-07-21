@@ -28,6 +28,18 @@ writeFilesASJSON("./normalCalculatedData.json", normalPerformanceData);
 writeFilesASJSON("./sdsCalculatedData.json", sdsPerformanceData);
 writeFilesASJSON("./avaragesCalculatedData.json", avaragePerformanceData);
 
+writeFilesASCSV("./chiTestData.csv", avaragePerformanceData);
+writeFilesASCSV("./totalTime.csv", [
+  normalPerformanceData.reduce((prev, d, i) => {
+    prev[i] = d.totalDuration;
+    return prev;
+  }, {} as Record<string, number>),
+  sdsPerformanceData.reduce((prev, d, i) => {
+    prev[i] = d.totalDuration;
+    return prev;
+  }, {} as Record<string, number>),
+]);
+
 function calculatePerformanceData(path: string) {
   const calculatedData = readFilesASJSON(path)
     .map(mapPerformanceDataToRelativeData)
@@ -52,6 +64,22 @@ function writeFilesASJSON<T>(path: string, data: Array<T>) {
   const __currentDir = new URL(".", import.meta.url);
   const dataUrl = new URL(path, __currentDir);
   Deno.writeTextFileSync(dataUrl, JSON.stringify(data));
+}
+
+function writeFilesASCSV<T>(path: string, data: Array<T>) {
+  const keys = Object.keys(data[0]);
+  const headers = keys.join("\t") + "\n";
+  const rows = data
+    .map((entry) =>
+      Object.values(entry)
+        .map((a) => Number.parseFloat(a).toString().replace(".", ","))
+        .join("\t")
+    )
+    .join("\n");
+  const csvContent = `${headers}${rows}`;
+  const __currentDir = new URL(".", import.meta.url);
+  const dataUrl = new URL(path, __currentDir);
+  Deno.writeTextFileSync(dataUrl, csvContent);
 }
 
 function mapPerformanceDataToRelativeData(
@@ -127,4 +155,20 @@ function getAvaragePerformanceData(
       type: "SDS",
     },
   ];
+}
+
+function calculateChiSquareData(
+  normalPerformanceData: RelativePerformanceRunData[],
+  sdsPerformanceData: RelativePerformanceRunData[]
+) {
+  const normal = normalPerformanceData
+    .filter((d) => d.runIndex !== "Average")
+    .map((d) => d.totalDuration);
+  const sds = sdsPerformanceData
+    .filter((d) => d.runIndex !== "Average")
+    .map((d) => d.totalDuration);
+
+  return new Array(normal.length)
+    .fill(1)
+    .map((_, index) => ({ index, normal: normal[index], sds: sds[index] }));
 }
